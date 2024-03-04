@@ -23,10 +23,21 @@ const connection = mysql.createConnection({
   
   // 저장 버튼 클릭 -> 정보를 db에 저장
   app.post('/saveExpense', (req, res) => {
-    const { date, amount, description } = req.body;
+    const { date, amount_used, explain } = req.body;
+
+    const i_amount_used = perseInt(amount_used);
+
+    connection.query('SELECT amount_used FROM amount', (err, a) => {
+        if (err) {
+            res.status(500).send('Error retrieving existing expense');
+            return;
+        }
+
+        // 값이 있는지 확인
+    })
   
-    const query = 'INSERT INTO expenses (date, amount, description) VALUES (?, ?, ?)';
-    connection.query(query, [date, amount, description], (err, result) => {
+    const query = 'INSERT INTO amount (date, amount_used, explain) VALUES (?, ?, ?)';
+    connection.query(query, [date, i_amount_used, explain], (err, result) => {
       if (err) {
         console.error(err);
         res.status(500).send('Error saving expense');
@@ -37,11 +48,11 @@ const connection = mysql.createConnection({
   });
   
   // db에서 지출 정보 클라이언트에 응답
-  app.get('/expenses', (req, res) => {
-    connection.query('SELECT * FROM expenses', (err, results) => {
+  app.get('/amount', (req, res) => {
+    connection.query('SELECT * FROM amount', (err, results) => {
       if (err) {
         console.error(err);
-        res.status(500).send('Error fetching expenses');
+        res.status(500).send('Error fetching amount');
       } else {
         res.json(results);
       }

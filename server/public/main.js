@@ -6,7 +6,8 @@ document.addEventListener('DOMContentLoaded', function() {
         dateClick: function(info) {
             document.getElementById('selectedDate').value = info.dateStr;
             document.getElementById('expenseForm').style.display = 'block';
-        }
+        },
+        events: '/getAmount'
     });
 
     calendar.render();
@@ -17,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var description = document.getElementById('expenseDescription').value;
 
         alert('날짜: ' + date + ', 금액: ' + amount + ', 설명: ' + description + '가 저장되었습니다.');
+        calendar.refetchEvents();
 
         document.getElementById('expenseAmount').value = '';
         document.getElementById('expenseDescription').value = '';
