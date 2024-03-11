@@ -21,11 +21,14 @@ const connection = mysql.createConnection({
     console.log('Connected to MySQL database');
   });
   
+  // 미들웨어 설정
+  app.use(express.json());
+
   // 저장 버튼 클릭 -> 정보를 db에 저장
   app.post('/saveExpense', (req, res) => {
-    const { date, amount_used, explain } = req.body;
+    const { date, amount_used, explanation } = req.body;
 
-    const i_amount_used = perseInt(amount_used);
+    const i_amount_used = parseInt(amount_used);
 
     connection.query('SELECT amount_used FROM amount', (err, a) => {
         if (err) {
@@ -36,8 +39,8 @@ const connection = mysql.createConnection({
         // 값이 있는지 확인
     })
   
-    const query = 'INSERT INTO amount (date, amount_used, explain) VALUES (?, ?, ?)';
-    connection.query(query, [date, i_amount_used, explain], (err, result) => {
+    const query = 'INSERT INTO amount (date, amount_used, explanation) VALUES (?, ?, ?)';
+    connection.query(query, [date, i_amount_used, explanation], (err, result) => {
       if (err) {
         console.error(err);
         res.status(500).send('Error saving expense');
