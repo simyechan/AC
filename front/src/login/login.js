@@ -20,7 +20,6 @@ function inputWarnMaker(){
             loginPasswordDiv.classList.add("warn");
             loginInputWarn[1].classList.remove('transparent');
             break;
-            // ?
         case 'kimchi':
             break;
     }
