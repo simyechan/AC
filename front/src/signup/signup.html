@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="signup.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../globalStyle.css" />
+    <title>ABC</title>
+  </head>
+  <body>
+    <div class="signup">
+      <h1>회원가입</h1>
+
+      <div id="nickMix">
+        <div class="nickname inputDiv">
+          <input type="text" class="nicknameInput" placeholder="닉네임"/>
+        </div>
+        <p class="warnText transparent">닉네임을 입력해 주세요</p>
+      </div>
+
+      <div id="pwdMix">
+        <div class="password inputDiv">
+          <input type="password" class="passwordInput" placeholder="비밀번호"/>
+        </div>
+        <p class="warnText transparent">비밀번호를 입력해 주세요</p>
+      </div>
+
+      <div id="pwdChkMix">
+        <div class="password passwordCheck inputDiv">
+          <input type="password" class="passwordCheckInput" placeholder="비밀번호 확인"/>
+        </div>
+        <p class="warnText transparent">비밃번호를 다시 입력해 주세요</p>
+      </div>
+
+      <button type="submit" class="signupButton">회원가입</button>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="signup.js"></script>
+  </body>
+</html>
