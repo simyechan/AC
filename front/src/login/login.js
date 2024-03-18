@@ -20,7 +20,7 @@ function inputWarnMaker(){
             loginPasswordDiv.classList.add("warn");
             loginInputWarn[1].classList.remove('transparent');
             break;
-        case 'kimchi':
+        case 'empty':
             break;
     }
 }
@@ -33,12 +33,12 @@ function blankScanner(){
         return 'passwd';
     }
     else if(loginPasswordInput.value.length!=0&&loginNickInput.value.length!=0){
-        return 'kimchi';
+        return 'empty';
     }
 }
 
 function loginServerPost(){
-    if(blankScanner()==='kimchi'){
+    if(blankScanner()==='empty'){
         axios({
             method:'post',
             url:'/auth/login',
