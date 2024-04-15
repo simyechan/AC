@@ -24,23 +24,6 @@
   color: white;
 }
 
-.signupbtn{
-  width: 80px;
-  border-radius: 5px;
-  height: 30px;
-  font-size: 14px;
-  font-weight: bold;
-  background-color: #D4D4D4;
-  color: black;
-  border: 1px solid rgba(156, 156, 156, 0.2);
-}
-
-.signupbtn:hover{
-  background-color: #4F60FF;
-  border: none;
-  color: white;
-}
-
 section{
   display: flex;
   justify-content: center;
