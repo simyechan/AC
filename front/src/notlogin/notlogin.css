@@ -1,0 +1,31 @@
+.login{
+  font-size: 14px;
+  color: black;
+  text-decoration: none;
+}
+section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.logineed{
+  font-size: 32px;
+  margin-top: 100px;
+}
+.notimg{
+  width: 200px;
+  margin-top: 40px;
+}
+.loginbtn{
+  width: 150px;
+  height: 35px;
+  border-radius: 30px;
+  border:none;
+  margin-top: 40px;
+  cursor: pointer;
+}
+.loginbtn:hover{
+  color: white;
+  background-color: #4F60FF;
+}
