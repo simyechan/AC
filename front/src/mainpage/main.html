@@ -4,29 +4,28 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="../assets/Group 61.png">
     <title>ABC</title>
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
     <link rel="stylesheet" href="main.css">
 
   </head>
   <body>
-
-    <div class="container">
-      <div class="bata">
-        <img src="../image/ABC.svg" class="logo">
-      </div>
-      <div>
-        <button class="loginbtn" onclick="location.href='../login/login.html'">로그인</button>
-      </div>
-      <div>
-        <button class="depositbtn" onclick="location.href='../deposit/deposit.html'">입금</button>
-      </div>
+    
+    <a href="./main.html">
+      <img src="../image/ABC.svg" alt="로고" class="logo">
+    </a>
+    
+    <div>
+      <button class="loginbtn" onclick="location.href='../login/login.html'">로그인</button>
     </div>
 
     <div id="calendar"></div>
 
-    
+    <div id="expenseForm" style="display: none;">
+      <input type="hidden" id="selectedDate">
+      <button class="depositbtn" onclick="location.href='../deposit/deposit.html'">입금</button>
+      <button class="withdrawbtn" onclick="location.href='../withdraw/withdraw.html'">출금</button>
+    </div>
 
     <script src="main.js"></script>
   </body>

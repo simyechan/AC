@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ABC</title>
+  <link rel="stylesheet" href="deposit.css">
+</head>
+<body>
+  <div class="container">
+    <div class="bata">
+      <img src="../image/ABC.svg" class="logo">
+    </div>
+    <div>
+      <button class="loginbtn" onclick="location.href='../login/login.html'">로그인</button>
+    </div>
+  </div>
+
+  <div id="expenseForm" style="display: none;">
+    <h2>입금</h2>
+    <input type="hidden" id="selectedDate">
+    <label for="expenseAmount">금액(원):</label>
+    <input type="number" id="expenseAmount">
+    <label for="expenseDescription">설명:</label>
+    <input type="text" id="expenseDescription">
+    <label for="expenseCategory">카테고리:</label>
+    <select id="expenseCategory"></select>
+    <button id="saveButton">저장</button>
+  </div>
+
+  <script src="deposit.css"></script>
+</body>
+</html>
