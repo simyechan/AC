@@ -18,14 +18,32 @@ section{
   margin-top: 40px;
 }
 .loginbtn{
-  width: 150px;
-  height: 35px;
-  border-radius: 30px;
-  border:none;
-  margin-top: 40px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 29px;
+  background-image: linear-gradient(to right, #FF0000, #FFF500, #05FF00);
+  color: black;
+  width: 396px;
+  margin-top: 20px;
+  margin-bottom: 36px;
+  border: 1px solid rgba(156, 156, 156, 0.2);
+  border-radius: 8px;
+  padding: 6px 26px;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+button{
+  border: 1px solid transparent;
+  background-origin: border-box;
+  background-clip: border-box;
+  border-radius: 8px;
+  padding:6px 26px;
+  transition: all 0.2s;
   cursor: pointer;
 }
 .loginbtn:hover{
   color: white;
-  background-color: #4F60FF;
+  filter: brightness(0.85);
+  transition: all 0.2s;
 }

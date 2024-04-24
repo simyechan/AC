@@ -81,6 +81,12 @@
   margin-bottom: 10px;
 }
 
+#depositbtn:hover{
+  color: white;
+  filter: brightness(0.85);
+  transition: all 0.2s;
+}
+
 button{
   border: 1px solid transparent;
   background-origin: border-box;
