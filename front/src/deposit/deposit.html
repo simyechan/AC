@@ -8,16 +8,40 @@
   <link rel="stylesheet" href="deposit.css">
 </head>
 <body>
-  <div class="container">
-    <div class="bata">
-      <img src="../image/ABC.svg" class="logo">
+
+  <a href="../mainpage/main.html">
+    <img src="../image/ABC.svg" alt="로고" class="logo">
+  </a>
+
+  <div class="deposit">
+
+    <h1 class="title">입금</h1>
+
+    <div class="nick">
+      <div id="nickInputDiv">
+        <input type="number" placeholder="입금액" id="nickInput">
+      </div>
+      <p id="warnID" class="warnText transparent">입금액을 입력해 주세요</p>
     </div>
-    <div>
-      <button class="loginbtn" onclick="location.href='../login/login.html'">로그인</button>
+
+    <div class="password">
+      <div id="passwordInputDiv">
+        <input type="text" placeholder="간단한 설명" id="passwordInput">
+      </div>
+      <p id="warnPassword" class="warnText transparent">간단한 설명을 입력해 주세요</p>
     </div>
+
+    
+
+    <button type="submit" id="depositbtn">입금</button>
   </div>
 
-  <div id="expenseForm" style="display: none;">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="deposit.js"></script>
+</body>
+</html>
+
+  <!-- <div id="expenseForm" style="display: none;">
     <h2>입금</h2>
     <input type="hidden" id="selectedDate">
     <label for="expenseAmount">금액(원):</label>
@@ -27,8 +51,4 @@
     <label for="expenseCategory">카테고리:</label>
     <select id="expenseCategory"></select>
     <button id="saveButton">저장</button>
-  </div>
-
-  <script src="deposit.css"></script>
-</body>
-</html>
+  </div> -->

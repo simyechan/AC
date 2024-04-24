@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ABC</title>
+  <link rel="stylesheet" href="withdraw.css">
+</head>
+<body>
+  
+  <a href="../mainpage/main.html">
+    <img src="../image/ABC.svg" alt="로고" class="logo">
+  </a>
+
+  <div class="deposit">
+
+    <h1 class="title">출금</h1>
+
+    <div class="nick">
+      <div id="nickInputDiv">
+        <input type="number" placeholder="출금액" id="nickInput">
+      </div>
+      <p id="warnID" class="warnText transparent">출금액을 입력해 주세요</p>
+    </div>
+
+    <div class="password">
+      <div id="passwordInputDiv">
+        <input type="text" placeholder="간단한 설명" id="passwordInput">
+      </div>
+      <p id="warnPassword" class="warnText transparent">간단한 설명을 입력해 주세요</p>
+    </div>
+
+    
+
+    <button type="submit" id="depositbtn">출금</button>
+  </div>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="deposit.js"></script>
+</body>
+</html>

@@ -68,7 +68,17 @@
   cursor: pointer;
 }
 
-.signupButton:hover{
+button{
+  border: 1px solid transparent;
+  background-origin: border-box;
+  background-clip: border-box;
+  border-radius: 8px;
+  padding:6px 26px;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+button:hover{
   filter: brightness(0.85);
   transition: all 0.2s;
 }
