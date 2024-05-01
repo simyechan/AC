@@ -118,3 +118,14 @@ section{
 .nickname{
   color: #5E5E5E;  
 }
+
+#totalAmount {
+  position: fixed;
+  bottom: 8%;
+  right: 2%;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
