@@ -9,7 +9,7 @@ const loginInputWarn = document.getElementsByClassName("warnText");
 const loginMoveToSignUp = document.getElementById("signupButton");
 axios.defaults.baseURL = 'http://192.168.52.156:8080';
 
-/** 닉네임&비밀번호 내용이 있는지를 구분해 경고 주는 팡션 */
+/** 닉네임&비밀번호 내용이 있는지를 구분해 경고 */
 function inputWarnMaker(){
     switch(blankScanner()){
         case 'nick':
@@ -61,7 +61,6 @@ function loginServerPost(){
     }
 }
 
-/** 닉네임과 비밀번호 변경을 감지해 경고를 지워주는 이벤-뜨 리스너 */
 loginNickInput.addEventListener('change',function(){
     loginInputWarn[0].classList.add('transparent');
     loginNickDiv.classList.remove("warn");

@@ -46,7 +46,7 @@ function signUpServerPost(){
             method:'post',
             url:'/auth/signup',
             data:{
-                "userNick": signUpNickInput.value,
+                "nick": signUpNickInput.value,
                 "password": signUpPasswordInput.value
             }
         })
