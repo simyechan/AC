@@ -1,3 +1,4 @@
+
 const signUpNickInput = document.querySelector(".nickInput");
 const signUpPasswordInput = document.querySelector(".passwordInput");
 const signUpPasswordReInput = document.querySelector(".passwordCheckInput");
@@ -78,6 +79,5 @@ signUpPasswordReInput.addEventListener('change',function(){
     signUpWarntext[3].classList.add('transparent');
     signUpInputDivs[3].classList.remove("warnborder");
 });
-
 
 signUpButton.addEventListener("click",signUpServerPost);
