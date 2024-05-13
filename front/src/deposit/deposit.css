@@ -25,7 +25,7 @@
   margin-top: 28px;
 }
 
-#nickInputDiv, #passwordInputDiv{
+#depoInputDiv, #explInputDiv{
   background: #FFFFFF;
   border: 1px solid rgba(156, 156, 156, 0.2);
   border-radius: 8px;
@@ -35,7 +35,7 @@
   padding: 12px;
   margin-top: 12px;
 }
-#nickInputDiv > input, #passwordInputDiv > input{
+#depoInputDiv > input, #explInputDiv > input{
   border: none;
   width: 100%;
   height: 100%;
@@ -46,7 +46,7 @@
   font-weight: 700;
 }
 
-#nickInputDiv{
+#depoInputDiv{
   margin-top: 44px;
 }
 

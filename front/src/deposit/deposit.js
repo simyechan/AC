@@ -1,23 +1,39 @@
 document.addEventListener('DOMContentLoaded', function () {
   const depositBtn = document.getElementById('depositbtn');
-  const nickInput = document.getElementById('nickInput');
-  const passwordInput = document.getElementById('passwordInput');
-  const warnNick = document.getElementById('warnID');
-  const warnPassword = document.getElementById('warnPassword');
+  const depoInput = document.getElementById('depoInput');
+  const explInput = document.getElementById('explInput');
+  const warnDepo = document.getElementById('warnDepo');
+  const warnExpl = document.getElementById('warnExpl');
 
   depositBtn.addEventListener('click', function (event) {
     event.preventDefault();
 
-    if (nickInput.value.trim() === '') {
-      warnNick.classList.remove('transparent');
+    if (depoInput.value.trim() === '') {
+      warnDepo.classList.remove('transparent');
     } else {
-      warnNick.classList.add('transparent');
+      warnDepo.classList.add('transparent');
     }
 
-    if (passwordInput.value.trim() === '') {
-      warnPassword.classList.remove('transparent');
+    if (explInput.value.trim() === '') {
+      warnExpl.classList.remove('transparent');
     } else {
-      warnPassword.classList.add('transparent');
+      warnExpl.classList.add('transparent');
+    }
+
+    if (depoInput.value.trim() !== '' && explInput.value.trim() !== '') {
+      const amount = parseFloat(depoInput.value);
+      const explanation = explInput.value;
+
+      axios.post('/deposit', {
+        amount: amount,
+        explanation: explanation
+      })
+      .then(function (response) {
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.error('Error: ', error);
+      });
     }
   });
 });

@@ -47,13 +47,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // 저장 버튼에 클릭 이벤트를 추가합니다.
     document.getElementById('saveButton').addEventListener('click', saveExpense);
 
-    function logingo() {
-        location.href = '../login/login.html';
-    };
-
-    function registrationgo() {
-        // registrationgo 함수의 구현 내용은 여기에 추가하세요
-    };
 });
 
 
