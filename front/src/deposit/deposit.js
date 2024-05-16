@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   async function fetchCategories() {
     try {
-      const response = await axios.get('/categorys');
+      const response = await axios.get('/common/categorys');
       return response.data;
     } catch (error) {
       console.error(error);
@@ -62,23 +62,27 @@ document.addEventListener('DOMContentLoaded', function () {
   async function searchCategories() {
     const input = categoryInput.value.toLowerCase();
     const categoryList = document.getElementById('categoryList');
-    const categories = await fetchCategories();
+    
+    try {
+      const categories = await fetchCategories();
+      const filterCategory = categories.filter(category => category.toLowerCase().includes(input));
 
-    const filterCategory = categories.filter(category => category.toLowerCase().includes(input));
-
-    categoryList.innerHTML = '';
-
-    filterCategory.forEach(category => {
-      const list = document.createElement('li');
-      list.textContent = category;
-      list.onclick = () => {
-        categoryInput.value = category;
-        categoryList.innerHTML = '';
-      };
-      categoryList.appendChild(list);
-    });
+      categoryList.innerHTML = '';
+      filterCategory.forEach(category => {
+        const list = document.createElement('li');
+        list.textContent = category;
+        list.addEventListener('click', () => {
+          categoryInput.value = category;
+          categoryList.innerHTML = '';
+        });
+        categoryList.appendChild(list);
+      });
+    } catch (error) {
+      console.error('Error searching categories:', error);
+    }
   }
 
+  fetchCategories().then(searchCategories)
   categoryInput.addEventListener('input', searchCategories);
 
 });
