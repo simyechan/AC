@@ -13,30 +13,36 @@
     <img src="../image/ABC.svg" alt="로고" class="logo">
   </a>
 
-  <div class="deposit">
+  <div class="withdraw">
 
     <h1 class="title">출금</h1>
 
-    <div class="nick">
-      <div id="nickInputDiv">
-        <input type="number" placeholder="출금액" id="nickInput">
+    <div class="with">
+      <div id="withInputDiv">
+        <input type="number" placeholder="출금액" id="withInput">
       </div>
-      <p id="warnID" class="warnText transparent">출금액을 입력해 주세요</p>
+      <p id="warnWith" class="warnText transparent">출금액을 입력해 주세요</p>
     </div>
 
-    <div class="password">
-      <div id="passwordInputDiv">
-        <input type="text" placeholder="간단한 설명" id="passwordInput">
+    <div class="expl">
+      <div id="explInputDiv">
+        <input type="text" placeholder="간단한 설명" id="explInput">
       </div>
-      <p id="warnPassword" class="warnText transparent">간단한 설명을 입력해 주세요</p>
+      <p id="warnExpl" class="warnText transparent">간단한 설명을 입력해 주세요</p>
     </div>
 
-    
+    <div class="category">
+      <div id="categoryInputDiv">
+        <input type="text" placeholder="카테고리" id="categoryInput" oninput="searchCategories()">
+        <ul id="categoryList" class="categoryList"></ul>
+      </div>
+      <p id="warnCategory" class="warnText transparent">카테고리를 입력해 주세요</p>
+    </div>
 
-    <button type="submit" id="depositbtn">출금</button>
+    <button type="submit" id="withdrawbtn">출금</button>
   </div>
 
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="deposit.js"></script>
+  <script src="withdraw.js"></script>
 </body>
 </html>
