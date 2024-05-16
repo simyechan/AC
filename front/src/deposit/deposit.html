@@ -31,7 +31,13 @@
       <p id="warnExpl" class="warnText transparent">간단한 설명을 입력해 주세요</p>
     </div>
 
-    
+    <div class="category">
+      <div id="categoryInputDiv">
+        <input type="text" placeholder="카테고리" id="categoryInput" oninput="searchCategories()">
+        <ul id="categoryList" class="categoryList"></ul>
+      </div>
+      <p id="warnCategory" class="warnText transparent">카테고리를 입력해 주세요</p>
+    </div>
 
     <button type="submit" id="depositbtn">입금</button>
   </div>
@@ -40,15 +46,3 @@
   <script src="deposit.js"></script>
 </body>
 </html>
-
-  <!-- <div id="expenseForm" style="display: none;">
-    <h2>입금</h2>
-    <input type="hidden" id="selectedDate">
-    <label for="expenseAmount">금액(원):</label>
-    <input type="number" id="expenseAmount">
-    <label for="expenseDescription">설명:</label>
-    <input type="text" id="expenseDescription">
-    <label for="expenseCategory">카테고리:</label>
-    <select id="expenseCategory"></select>
-    <button id="saveButton">저장</button>
-  </div> -->
