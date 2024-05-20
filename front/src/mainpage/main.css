@@ -119,7 +119,7 @@ section{
   color: #5E5E5E;  
 }
 
-#totalAmount {
+.totalAmount {
   position: fixed;
   bottom: 8%;
   right: 2%;
@@ -128,4 +128,16 @@ section{
   padding: 5px 10px;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#monthlyTotal {
+  bottom: 10%;
+}
+
+#monthlyGoal {
+  bottom: 6%;
+}
+
+#monthlyTarget {
+  bottom: 2%;
 }
