@@ -1,3 +1,30 @@
+// document.addEventListener('DOMContentLoaded', function() {
+//     var calendarEl = document.getElementById('calendar');
+//     var calendar = new FullCalendar.Calendar(calendarEl, {
+//       initialView: 'dayGridMonth',
+//       dayCellContent: function(info) {
+//         // 날짜 가져오기
+//         const date = info.dateStr;
+        
+//         // 날짜별 총 금액 가져오기
+//         fetch('/getTotalForDate?date=' + date)
+//           .then(response => response.json())
+//           .then(data => {
+//             const totalAmount = data.total || 0;
+//             // 총 금액을 날짜 셀에 추가하는 HTML 생성
+//             const totalHtml = `<div>${info.dayNumber}<br>${totalAmount}원</div>`;
+//             // 날짜 셀에 총 금액 표시
+//             info.dayEl.innerHTML += totalHtml;
+//           })
+//           .catch(error => {
+//             console.error('총 금액을 가져오는 중 오류가 발생했습니다.', error);
+//           });
+//       },
+//       events: '/getAmount'
+//     });
+//     calendar.render();
+//   });
+
 document.addEventListener('DOMContentLoaded', function() {
     const loginbtn = document.querySelector(".loginbtn");
     const mypagebtn = document.querySelector(".mypagebtn");
@@ -28,49 +55,4 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => {
             console.error('카테고리를 가져오는 중 오류가 발생했습니다.', error);
         });
-
-    function saveExpense() {
-        var date = document.getElementById('selectedDate').value;
-        var amount = document.getElementById('expenseAmount').value;
-        var category = document.getElementById('expenseCategory').value;
-        var description = document.getElementById('expenseDescription').value;
-        
-        alert('날짜: ' + date + ', 금액: ' + amount + ', 설명: ' + description + ', 카테고리 ID: ' + category + '가 저장되었습니다.');
-        calendar.refetchEvents();
-        
-        document.getElementById('expenseAmount').value = '';
-        document.getElementById('expenseCategory').value = '';
-        document.getElementById('expenseDescription').value = '';
-        document.getElementById('expenseForm').style.display = 'none';
-    }
-    
-    // 저장 버튼에 클릭 이벤트를 추가합니다.
-    document.getElementById('saveButton').addEventListener('click', saveExpense);
-
 });
-
-
-// axios.defaults.baseURL = 'http://192.168.52.156:8080';
-// let token = localStorage.getItem('accessTkn') || '';
-// localStorage.removeItem("PageId");
-
-// axios.get('/memoir/list')
-//   .then(function(result){
-//       console.log('통신 결과 : ', result);
-
-//       if(token !== ''){
-//           loginbtn.innerText = "글쓰기";
-//           loginbtn.addEventListener("click", registrationgo);
-//       }else{
-//           loginbtn.addEventListener("click", logingo);
-//           mypagebtn.style.display = 'none';
-//       }
-      
-//   })
-//   .catch(function(error){
-//       console.error('error 발생 : ', error);
-//   });
-
-//   function logingo(){
-//       location.href = '../login/login.html';
-//   }
