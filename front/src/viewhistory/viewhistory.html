@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC</title>
+    <link rel="stylesheet" href="viewhistory.css">
+</head>
+<body>
+
+  <a href="../mainpage/main.html">
+    <img src="../image/ABC.svg" alt="로고" class="logo">
+  </a>
+
+  <div class="viewhistory">
+
+    <h1 class="title">하루 동안의 수입과 지출</h1>
+    <div class="income">
+      <h2>수입</h2>
+      <ul id="incomeList"></ul>
+    </div>
+
+    <div class="expense">
+      <h2>지출</h2>
+      <ul id="expenseList"></ul>
+    </div>
+
+    <div class="total">
+      <h2 id="totalAmount">총 금액: 0원</h2>
+    </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="viewhistory.js"></script>
+  </div>
+</body>
+</html>
