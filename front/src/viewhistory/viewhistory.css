@@ -7,8 +7,8 @@
   top: 50%;
   left: 50%;
 
-  width: 468px;
-  height: 450px;
+  width: 470px;
+  height: 430px;
   background: #F5F5F5;
   border: 1px solid rgba(156, 156, 156, 0.2);
   border-radius: 16px;
@@ -21,9 +21,9 @@
 .title{
   font-weight: 700;
   font-size: 36px;
-  line-height: 52px;
+  line-height: 50px;
 
-  margin-top: 28px;
+  margin-top: 30px;
 }
 
 .income, .expense, .total{
@@ -31,7 +31,7 @@
   border: 1px solid rgba(156, 156, 156, 0.2);
   border-radius: 8px;
 
-  width: 396px;
+  width: 400px;
   height: 60px;
   padding: 15px;
   margin-top: 12px;
