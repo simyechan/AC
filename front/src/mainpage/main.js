@@ -28,6 +28,12 @@
 document.addEventListener('DOMContentLoaded', function() {
     const loginbtn = document.querySelector(".loginbtn");
     const mypagebtn = document.querySelector(".mypagebtn");
+    // const isLoggedIn = localStorage.getItem('isLoggedIn');
+
+    // // 로그인이 되어 있지 않다면 notlogin.html로 리디렉션
+    // if (!isLoggedIn) {
+    //     window.location.href = '../notlogin/notlogin.html';
+    // }
     var calendarEl = document.getElementById('calendar');
     var calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: 'dayGridMonth',
