@@ -33,10 +33,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const category = categoryInput.value.trim();
 
     if (!isNaN(amount) && amount >= 0) {
+      const selectedCategory = category.trim() !== '' ? category : '기타';
       axios.post('/deposit', {
         amount: amount,
         explanation: explanation,
-        category: category
+        category: selectedCategory
       })
       .then(function (response) {
         console.log(response.data);
