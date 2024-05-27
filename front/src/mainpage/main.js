@@ -25,15 +25,17 @@
 //     calendar.render();
 //   });
 
-document.addEventListener('DOMContentLoaded', function() {
-    const loginbtn = document.querySelector(".loginbtn");
-    const mypagebtn = document.querySelector(".mypagebtn");
-    // const isLoggedIn = localStorage.getItem('isLoggedIn');
+// const isLoggedIn = localStorage.getItem('isLoggedIn');
 
     // // 로그인이 되어 있지 않다면 notlogin.html로 리디렉션
     // if (!isLoggedIn) {
     //     window.location.href = '../notlogin/notlogin.html';
     // }
+    
+document.addEventListener('DOMContentLoaded', function() {
+    const loginbtn = document.querySelector(".loginbtn");
+    const mypagebtn = document.querySelector(".mypagebtn");
+    
     var calendarEl = document.getElementById('calendar');
     var calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: 'dayGridMonth',
@@ -45,6 +47,24 @@ document.addEventListener('DOMContentLoaded', function() {
         events: '/getAmount'
     });
     calendar.render();
+
+    fetch('/goal')
+        .then(response => response.json())
+        .then(goalData => {
+            document.getElementById('monthlyGoalAmount').textContent = goalData.amount;
+        })
+        .catch(error => {
+            console.error('입금 목표 금액을 가져오는 중 오류가 발생했습니다. :', error);
+        });
+
+    fetch('/target')
+        .then(response => response.json())
+        .then(targetData => {
+            document.getElementById('monthlyTargetAmount').textContent = targetData.amount;
+        })
+        .catch(error => {
+            console.error('지출 목표 금액을 가져오는 중 오류가 발생했습니다. :', error);
+        });
 
     fetch('/categorys')
         .then(response => response.json())
@@ -59,6 +79,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         })
         .catch(error => {
-            console.error('카테고리를 가져오는 중 오류가 발생했습니다.', error);
+            console.error('카테고리를 가져오는 중 오류가 발생했습니다. :', error);
         });
 });
