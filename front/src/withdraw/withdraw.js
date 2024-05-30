@@ -33,9 +33,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const category = categoryInput.value.trim();
 
     if (isNaN(amount) && amount <= 0) {
-      axios.post('/withdraw', {
+      axios.post('http://localhost:8000/expense/withdraw', {
         amount: amount,
         explanation: explanation,
+        // date: ,
         category: category
       })
       .then(function (response) {
@@ -51,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   async function fetchCategories() {
     try {
-      const response = await axios.get('/common/categorys');
+      const response = await axios.get('http://localhost:8000/common/categorys');
       return response.data;
     } catch (error) {
       console.error(error);
@@ -83,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
   
-  fetchCategories().then(searchCategories)
+  searchCategories();
   categoryInput.addEventListener('input', searchCategories);
 
 });

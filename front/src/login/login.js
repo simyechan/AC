@@ -41,7 +41,7 @@ function loginServerPost(){
     if(blankScanner()==='empty'){
         axios({
             method:'post',
-            url:'/auth/login',
+            url:'http://localhost:8000/auth/login',
             data:{
                 "userNick": loginNickInput.value,
                 "password": loginPasswordInput.value,
