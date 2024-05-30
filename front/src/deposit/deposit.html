@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -7,6 +8,7 @@
   <title>ABC</title>
   <link rel="stylesheet" href="deposit.css">
 </head>
+
 <body>
 
   <a href="../mainpage/main.html">
@@ -31,9 +33,16 @@
       <p id="warnExpl" class="warnText transparent">간단한 설명을 입력해 주세요</p>
     </div>
 
+    <div class="date">
+      <div id="dateInputDiv">
+        <input type="date" placeholder="날짜" id="dateInput">
+      </div>
+      <p id="warnDate" class="warnText transparent">날짜를 입력해 주세요</p>
+    </div>
+
     <div class="category">
       <div id="categoryInputDiv">
-        <input type="text" placeholder="카테고리" id="categoryInput" oninput="searchCategories()">
+        <input type="text" placeholder="카테고리" id="categoryInput">
         <ul id="categoryList" class="categoryList"></ul>
       </div>
       <p id="warnCategory" class="warnText transparent">카테고리를 입력해 주세요</p>
@@ -43,6 +52,7 @@
   </div>
 
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="deposit.js"></script>
+  <script type="module" src="deposit.js"></script>
 </body>
+
 </html>
