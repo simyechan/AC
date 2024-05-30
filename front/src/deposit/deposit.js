@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (!isNaN(amount) && amount >= 0) {
       const selectedCategory = category.trim() !== '' ? category : '기타';
-      axios.post('/deposit', {
+      axios.post('http://localhost:8000/income/deposit', {
         amount: amount,
         explanation: explanation,
         category: selectedCategory
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   async function fetchCategories() {
     try {
-      const response = await axios.get('/common/categorys');
+      const response = await axios.get('http://localhost:8000/common/categorys');
       return response.data;
     } catch (error) {
       console.error(error);
@@ -69,6 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const filterCategory = categories.filter(category => category.toLowerCase().includes(input));
 
       categoryList.innerHTML = '';
+
       filterCategory.forEach(category => {
         const list = document.createElement('li');
         list.textContent = category;
@@ -83,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  fetchCategories().then(searchCategories)
+  searchCategories();
   categoryInput.addEventListener('input', searchCategories);
 
 });

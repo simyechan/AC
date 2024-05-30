@@ -7,7 +7,7 @@ const loginPasswordDiv = document.getElementById("passwordInputDiv");
 const loginInputWarn = document.getElementsByClassName("warnText");
 
 const loginMoveToSignUp = document.getElementById("signupButton");
-axios.defaults.baseURL = 'http://192.168.52.156:8080';
+axios.defaults.baseURL = 'http://localhost:8000';
 
 /** 닉네임&비밀번호 내용이 있는지를 구분해 경고 */
 function inputWarnMaker(){
