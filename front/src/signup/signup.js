@@ -5,7 +5,7 @@ const signUpPasswordReInput = document.querySelector(".passwordCheckInput");
 const signUpWarntext = document.querySelectorAll(".warnText");
 const signUpInputDivs = document.querySelectorAll(".inputDiv");
 const signUpButton = document.querySelector(".signupButton");
-axios.defaults.baseURL = 'http://192.168.52.156:8080';
+axios.defaults.baseURL = 'http://localhost:8000';
 
 function inputWarnMaker(){
     switch(blankScanner()){
@@ -14,12 +14,12 @@ function inputWarnMaker(){
             signUpInputDivs[0].classList.add('warnborder');
             break;
         case 'pswd':
-            signUpWarntext[2].classList.remove('transparent');
-            signUpInputDivs[2].classList.add('warnborder');
+            signUpWarntext[1].classList.remove('transparent');
+            signUpInputDivs[1].classList.add('warnborder');
             break;
         case 'pwre':
-            signUpWarntext[3].classList.remove('transparent');
-            signUpInputDivs[3].classList.add('warnborder');
+            signUpWarntext[2].classList.remove('transparent');
+            signUpInputDivs[2].classList.add('warnborder');
             break;
     }
 }
@@ -45,7 +45,7 @@ function signUpServerPost(){
     else if(blankScanner()===200){
         axios({
             method:'post',
-            url:'/auth/signup',
+            url:'http://localhost:8000/auth/signup',
             data:{
                 "nick": signUpNickInput.value,
                 "password": signUpPasswordInput.value
@@ -68,16 +68,16 @@ function signUpServerPost(){
 
 /** input 내용 변경을 감지해 경고 지우는 팡션 */
 signUpNickInput.addEventListener('change',function(){
+    signUpWarntext[0].classList.add('transparent');
+    signUpInputDivs[0].classList.remove("warnborder");
+});
+signUpPasswordInput.addEventListener('change',function(){
     signUpWarntext[1].classList.add('transparent');
     signUpInputDivs[1].classList.remove("warnborder");
 });
-signUpPasswordInput.addEventListener('change',function(){
+signUpPasswordReInput.addEventListener('change',function(){
     signUpWarntext[2].classList.add('transparent');
     signUpInputDivs[2].classList.remove("warnborder");
-});
-signUpPasswordReInput.addEventListener('change',function(){
-    signUpWarntext[3].classList.add('transparent');
-    signUpInputDivs[3].classList.remove("warnborder");
 });
 
 signUpButton.addEventListener("click",signUpServerPost);

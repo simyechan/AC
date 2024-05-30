@@ -50,11 +50,6 @@
   margin-top: 44px;
 }
 
-.warn{
-  border: 2px solid red !important;
-  transition: all 0.25s;
-}
-
 .warnText{
   margin-left: 12px;
   color: red;
