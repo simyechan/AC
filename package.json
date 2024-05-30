@@ -27,5 +27,6 @@
   "jest": {
     "testEnvironment": "jest-environment-jsdom"
   },
-  "proxy": "http://localhost:8000"
+  "proxy": "http://localhost:8000",
+  "type": "module"
 }
