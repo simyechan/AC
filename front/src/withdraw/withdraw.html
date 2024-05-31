@@ -1,55 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ABC</title>
-  <link rel="stylesheet" href="withdraw.css">
-</head>
-<body>
-  
-  <a href="../mainpage/main.html">
-    <img src="../image/ABC.svg" alt="로고" class="logo">
-  </a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ABC</title>
+    <link rel="stylesheet" href="withdraw.css" />
+  </head>
+  <body>
+    <a href="../mainpage/main.html">
+      <img src="../image/ABC.svg" alt="로고" class="logo" />
+    </a>
 
-  <div class="withdraw">
+    <div class="withdraw">
+      <h1 class="title">출금</h1>
 
-    <h1 class="title">출금</h1>
-
-    <div class="with">
-      <div id="withInputDiv">
-        <input type="number" placeholder="출금액" id="withInput">
+      <div class="with">
+        <div id="withInputDiv">
+          <input type="number" placeholder="출금액" id="withInput" />
+        </div>
+        <p id="warnWith" class="warnText transparent">출금액을 입력해 주세요</p>
       </div>
-      <p id="warnWith" class="warnText transparent">출금액을 입력해 주세요</p>
+
+      <div class="expl">
+        <div id="explInputDiv">
+          <input type="text" placeholder="간단한 설명" id="explInput" />
+        </div>
+        <p id="warnExpl" class="warnText transparent">
+          간단한 설명을 입력해 주세요
+        </p>
+      </div>
+
+      <div class="date">
+        <div id="dateInputDiv">
+          <input type="date" placeholder="날짜" id="dateInput" />
+        </div>
+        <p id="warnDate" class="warnText transparent">날짜를 입력해 주세요</p>
+      </div>
+
+      <div class="category">
+        <div id="categoryInputDiv">
+          <input type="text" placeholder="카테고리" id="categoryInput" />
+          <ul id="categoryList" class="categoryList"></ul>
+        </div>
+        <p id="warnCategory" class="warnText transparent">
+          카테고리를 입력해 주세요
+        </p>
+      </div>
+
+      <button type="submit" id="withdrawbtn">출금</button>
     </div>
 
-    <div class="expl">
-      <div id="explInputDiv">
-        <input type="text" placeholder="간단한 설명" id="explInput">
-      </div>
-      <p id="warnExpl" class="warnText transparent">간단한 설명을 입력해 주세요</p>
-    </div>
-    
-    <div class="date">
-      <div id="dateInputDiv">
-        <input type="date" placeholder="날짜" id="dateInput">
-      </div>
-      <p id="warnDate" class="warnText transparent">날짜를 입력해 주세요</p>
-    </div>
-
-    <div class="category">
-      <div id="categoryInputDiv">
-        <input type="text" placeholder="카테고리" id="categoryInput">
-        <ul id="categoryList" class="categoryList"></ul>
-      </div>
-      <p id="warnCategory" class="warnText transparent">카테고리를 입력해 주세요</p>
-    </div>
-
-    <button type="submit" id="withdrawbtn">출금</button>
-  </div>
-
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="withdraw.js"></script>
-</body>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="withdraw.js"></script>
+  </body>
 </html>

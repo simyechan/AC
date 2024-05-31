@@ -1,19 +1,19 @@
-section{
+section {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.logineed{
+.logineed {
   font-size: 32px;
   margin-top: 100px;
 }
-.loginbtn{
+.loginbtn {
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
   line-height: 29px;
-  background-image: linear-gradient(to right, #FF0000, #FFF500, #05FF00);
+  background-image: linear-gradient(to right, #ff0000, #fff500, #05ff00);
   color: black;
   width: 396px;
   margin-top: 20px;
@@ -24,16 +24,16 @@ section{
   transition: all 0.2s;
   cursor: pointer;
 }
-button{
+button {
   border: 1px solid transparent;
   background-origin: border-box;
   background-clip: border-box;
   border-radius: 8px;
-  padding:6px 26px;
+  padding: 6px 26px;
   transition: all 0.2s;
   cursor: pointer;
 }
-.loginbtn:hover{
+.loginbtn:hover {
   color: white;
   filter: brightness(0.85);
   transition: all 0.2s;

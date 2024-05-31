@@ -8,17 +8,17 @@
   margin-right: 20px;
 }
 
-.logo{
+.logo {
   margin-left: 10px;
 }
 
-.loginbtn{
+.loginbtn {
   width: 80px;
   border-radius: 5px;
   height: 30px;
   font-size: 14px;
   font-weight: bold;
-  background-color: #D4D4D4;
+  background-color: #d4d4d4;
   color: black;
   border: 1px solid rgba(156, 156, 156, 0.2);
   position: absolute;
@@ -26,81 +26,81 @@
   right: 30px;
 }
 
-.loginbtn:hover{
-  background-image: linear-gradient(to right, #FF0000, #FFF500, #05FF00);
+.loginbtn:hover {
+  background-image: linear-gradient(to right, #ff0000, #fff500, #05ff00);
   border: none;
   color: black;
 }
 
-.depositbtn{
+.depositbtn {
   width: 80px;
   border-radius: 5px;
   height: 30px;
   font-size: 14px;
   font-weight: bold;
-  background-color: #D4D4D4;
+  background-color: #d4d4d4;
   color: black;
   border: 1px solid rgba(156, 156, 156, 0.2);
   margin-top: 30px;
   margin-left: 10px;
 }
 
-.depositbtn:hover{
-  background-image: linear-gradient(to right, #FF0000, #FFF500, #05FF00);
+.depositbtn:hover {
+  background-image: linear-gradient(to right, #ff0000, #fff500, #05ff00);
   border: none;
   color: black;
 }
 
-.withdrawbtn{
+.withdrawbtn {
   width: 80px;
   border-radius: 5px;
   height: 30px;
   font-size: 14px;
   font-weight: bold;
-  background-color: #D4D4D4;
+  background-color: #d4d4d4;
   color: black;
   border: 1px solid rgba(156, 156, 156, 0.2);
   margin-top: 30px;
 }
 
-.withdrawbtn:hover{
-  background-image: linear-gradient(to right, #FF0000, #FFF500, #05FF00);
+.withdrawbtn:hover {
+  background-image: linear-gradient(to right, #ff0000, #fff500, #05ff00);
   border: none;
   color: black;
 }
 
-.viewhistorybtn{
+.viewhistorybtn {
   width: 80px;
   border-radius: 5px;
   height: 30px;
   font-size: 14px;
   font-weight: bold;
-  background-color: #D4D4D4;
+  background-color: #d4d4d4;
   color: black;
   border: 1px solid rgba(156, 156, 156, 0.2);
   margin-top: 30px;
 }
 
-.viewhistorybtn:hover{
-  background-image: linear-gradient(to right, #FF0000, #FFF500, #05FF00);
+.viewhistorybtn:hover {
+  background-image: linear-gradient(to right, #ff0000, #fff500, #05ff00);
   border: none;
   color: black;
 }
 
-section{
+section {
   display: flex;
   justify-content: center;
 }
-.list{
+.list {
   display: flex;
   flex-wrap: wrap;
   width: 1030px;
   margin-top: 80px;
 }
-.one{
+.one {
   list-style: none;
   border: 1px solid rgba(156, 156, 156, 0.2);
-  background-color: #F2F2F2;
+  background-color: #f2f2f2;
   width: 320px;
   height: 150px;
   border-radius: 5px;
@@ -109,32 +109,33 @@ section{
   color: black;
   text-decoration: none;
 }
-.one:hover{
-  border: 2px solid #4F60FF;
+.one:hover {
+  border: 2px solid #4f60ff;
   box-shadow: 0 0 4px rgba(79, 96, 255, 0.5);
   cursor: pointer;
 }
 
-.title{
+.title {
   font-weight: bold;
   margin-top: 10px;
 }
 
-.date, .nickname{
+.date,
+.nickname {
   font-size: 12px;
 }
-.nickname{
+.nickname {
   font-weight: bold;
   margin-right: 10px;
 }
-.write{
+.write {
   display: flex;
 }
-.data{
+.data {
   color: #757575;
 }
-.nickname{
-  color: #5E5E5E;  
+.nickname {
+  color: #5e5e5e;
 }
 
 .totalAmount {

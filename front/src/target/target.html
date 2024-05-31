@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="target.css">
-  <title>ABC</title>
-</head>
-<body>
-  <a href="../mainpage/main.html">
-    <img src="../image/ABC.svg" alt="로고" class="logo">
-  </a>
-  <div class="target">
-    <h1 class="title">출금 목표 금액 작성</h1>
-    <div class="targetamount">
-      <div id="targetamountInputDiv">
-        <input type="number" placeholder="입금목표" id="targetamountInput"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="target.css" />
+    <title>ABC</title>
+  </head>
+  <body>
+    <a href="../mainpage/main.html">
+      <img src="../image/ABC.svg" alt="로고" class="logo" />
+    </a>
+    <div class="target">
+      <h1 class="title">출금 목표 금액 작성</h1>
+      <div class="targetamount">
+        <div id="targetamountInputDiv">
+          <input type="number" placeholder="입금목표" id="targetamountInput" />
+        </div>
+        <p id="warnID" class="warnText transparent">금액을 입력해 주세요</p>
       </div>
-      <p id="warnID" class="warnText transparent">금액을 입력해 주세요</p>
+      <button type="submit" id="targetButton">출금 목표 금액 작성</button>
     </div>
-    <button type="submit" id="targetButton">출금 목표 금액 작성</button>
-  </div>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="login.js"></script>
-</body>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="login.js"></script>
+  </body>
 </html>
