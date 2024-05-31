@@ -1,40 +1,66 @@
-document.addEventListener('DOMContentLoaded', async function() {
+document.addEventListener("DOMContentLoaded", async function () {
   const urlParams = new URLSearchParams(window.location.search);
-  const selectedDate = urlParams.get('date');
-  if (selectedDate) {
-      try {
-          const response = await fetch('/day?date=' + selectedDate);
-          const data = await response.json();
-          if (response.ok) {
-              const incomes = data.incomes || [];
-              const expenses = data.expenses || [];
+  const selectedDate = urlParams.get("date");
+  const isoDate = new Date(selectedDate).toISOString().split("T")[0];
+  if (!isoDate) {
+    alert("날짜 정보가 없습니다.");
+    return;
+  }
 
-              const incomeListElement = document.getElementById('incomeList');
-              const expenseListElement = document.getElementById('expenseList');
+  // 데이터 가져오기 호출
+  fetchDaliyData(isoDate);
 
-              incomes.forEach(income => {
-                const incomeItem = document.createElement('li');
-                incomeItem.textContent = 'Amount: ${income.amount}, Date: ${new Date(income.date).toLocaleString()}';
-                incomeListElement.appendChild(incomeItem);
-              });
+  async function fetchDaliyData(date) {
+    let total = 0;
+    try {
+      const token = localStorage.getItem("accessTkn");
+      const response = await axios.get(
+        `http://localhost:8000/income/deposit/${date}`,
+        {
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
-              expenses.forEach(expense => {
-                const expenseItem = document.createElement('li');
-                expenseItem.textContent = 'Amount: ${expense.amount}, Date: ${new Date(expense.date).toLocaleString()}';
-                expenseListElement.appendChild(expenseItem);
-              });
+      const incomeList = response.data;
 
-            const totalIncome = incomes.reduce((total, income) => total + income.amount, 0);
-            const totalExpense = expenses.reduce((total, expense) => total + expense.amount, 0);
-            const totalElement = document.getElementById('totalAmount');
-            totalElement.textContent = `총 금액: ${totalIncome - totalExpense}원`;
-          } else {
-              console.error('API 요청 실패:', data.error);
-          }
-      } catch (error) {
-          console.error('API 요청 중 오류:', error);
-      }
-  } else {
-      console.error('날짜 정보가 없습니다.');
+      const incomeAdd = document.getElementById("incomeList");
+      incomeList.forEach((item) => {
+        const listItem = document.createElement("li");
+        listItem.textContent = `${item.category}: ${item.amount}원`;
+        total += item.total;
+        incomeAdd.appendChild(listItem);
+      });
+    } catch (error) {
+      console.error("Error: ", error);
+    }
+
+    try {
+      const token = localStorage.getItem("accessTkn");
+      const response = await axios.get(
+        `http://localhost:8000/expense/withdraw/${date}`,
+        {
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      const expenseList = response.data;
+
+      const expenseAdd = document.getElementById("expenseList");
+      expenseList.forEach((item) => {
+        const listItem = document.createElement("li");
+        listItem.textContent = `${item.category}: ${item.amount}원`;
+        total += item.total;
+        expenseAdd.appendChild(listItem);
+      });
+    } catch (error) {
+      console.error("Error: ", error);
+    }
+
+    const totalAmount = document.getElementById("totalAmount");
+    totalAmount.textContent = `총 금액: ${total}원`;
   }
 });
