@@ -56,6 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
         )
         .then(function (response) {
           console.log(response.data);
+          alert("입금이 저장되었습니다.");
         })
         .catch(function (error) {
           console.error("Error: ", error);

@@ -71,6 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       )
       .then(function (response) {
+        alert("출금이 저장되었습니다.");
         console.log(response.data);
       })
       .catch(function (error) {
