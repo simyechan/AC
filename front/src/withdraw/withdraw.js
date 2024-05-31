@@ -1,90 +1,121 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const withdrawbtn = document.getElementById('withdrawbtn');
-  const withInput = document.getElementById('withInput');
-  const explInput = document.getElementById('explInput');
-  const categoryInput = document.getElementById('categoryInput');
-  const warnWith = document.getElementById('warnWith');
-  const warnExpl = document.getElementById('warnExpl');
-  const warnCategory = document.getElementById('warnCategory');
+document.addEventListener("DOMContentLoaded", function () {
+  const withdrawbtn = document.getElementById("withdrawbtn");
+  const withInput = document.getElementById("withInput");
+  const explInput = document.getElementById("explInput");
+  const categoryInput = document.getElementById("categoryInput");
+  const dateInput = document.getElementById("dateInput");
+  const warnWith = document.getElementById("warnWith");
+  const warnExpl = document.getElementById("warnExpl");
+  const warnCategory = document.getElementById("warnCategory");
+  const warnDate = document.getElementById("warnDate");
 
-  withdrawbtn.addEventListener('click', function (event) {
+  withdrawbtn.addEventListener("click", function (event) {
     event.preventDefault();
 
-    if (withInput.value.trim() === '') {
-      warnWith.classList.remove('transparent');
+    let valid = true;
+
+    if (withInput.value.trim() === "") {
+      warnWith.classList.remove("transparent");
+      valid = false;
     } else {
-      warnWith.classList.add('transparent');
+      warnWith.classList.add("transparent");
     }
 
-    if (explInput.value.trim() === '') {
-      warnExpl.classList.remove('transparent');
+    if (explInput.value.trim() === "") {
+      warnExpl.classList.remove("transparent");
+      valid = false;
     } else {
-      warnExpl.classList.add('transparent');
+      warnExpl.classList.add("transparent");
     }
 
-    if (categoryInput.value.trim() === '') {
-      warnCategory.classList.remove('transparent');
+    if (dateInput.value.trim() === "") {
+      warnDate.classList.remove("transparent");
+      valid = false;
     } else {
-      warnCategory.classList.add('transparent')
+      warnDate.classList.add("transparent");
     }
-    
+
     const amount = parseFloat(withInput.value.trim());
     const explanation = explInput.value.trim();
+    const date = dateInput.value.trim();
     const category = categoryInput.value.trim();
 
-    if (isNaN(amount) && amount <= 0) {
-      axios.post('http://localhost:8000/expense/withdraw', {
-        amount: amount,
-        explanation: explanation,
-        // date: ,
-        category: category
-      })
+    if (isNaN(amount)) {
+      warnWith.classList.remove("transparent");
+      valid = false;
+    } else {
+      warnWith.classList.add("transparent");
+    }
+
+    if (!valid) {
+      console.error("Invalid input values");
+      return;
+    }
+
+    const selectedCategory = category !== "" ? category : "기타";
+    const token = localStorage.getItem("accessTkn");
+
+    axios
+      .post(
+        "http://localhost:8000/expense/withdraw",
+        {
+          amount: amount,
+          explanation: explanation,
+          date: date,
+          category: selectedCategory,
+        },
+        {
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
+        }
+      )
       .then(function (response) {
         console.log(response.data);
       })
       .catch(function (error) {
-        console.error('Error: ', error);
+        console.error("Error: ", error);
       });
-    } else {
-      console.error('Invalid amount: ', withInput.value);
-    }
   });
-
-  async function fetchCategories() {
-    try {
-      const response = await axios.get('http://localhost:8000/common/categorys');
-      return response.data;
-    } catch (error) {
-      console.error(error);
-      return [];
-    }
-  }
 
   async function searchCategories() {
     const input = categoryInput.value.toLowerCase();
-    const categoryList = document.getElementById('categoryList');
+    const categoryList = document.getElementById("categoryList");
+
+    async function fetchCategories() {
+      try {
+        const response = await axios.get(
+          "http://localhost:8000/common/categorys"
+        );
+        return response.data;
+      } catch (error) {
+        console.error(error);
+        return [];
+      }
+    }
 
     try {
       const categories = await fetchCategories();
-      const filterCategory = categories.filter(category => category.toLowerCase().includes(input));
+      const filterCategory = categories.filter((category) =>
+        category.toLowerCase().includes(input)
+      );
 
-      categoryList.innerHTML = '';
+      categoryList.innerHTML = "";
 
-      filterCategory.forEach(category => {
-        const list = document.createElement('li');
+      filterCategory.forEach((category) => {
+        const list = document.createElement("li");
         list.textContent = category;
-        list.addEventListener('click', () => {
+        list.addEventListener("click", () => {
+          categoryList.innerHTML = "";
           categoryInput.value = category;
-          categoryList.innerHTML = '';
         });
         categoryList.appendChild(list);
       });
     } catch (error) {
-      console.error('Error searching categories:', error);
+      console.error("Error searching categories:", error);
     }
   }
-  
-  searchCategories();
-  categoryInput.addEventListener('input', searchCategories);
 
+  searchCategories();
+  categoryInput.addEventListener("input", searchCategories);
 });
