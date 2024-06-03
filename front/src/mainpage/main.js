@@ -1,4 +1,5 @@
 let selectedDate = null;
+let goalDate = null;
 
 document.addEventListener("DOMContentLoaded", function () {
   var calendarEl = document.getElementById("calendar");
@@ -18,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
         1
       );
 
+      goalDate = currentMonthStart;
       fetchMonthlyTotal(currentMonthStart);
       fetchMonthlyGoal(currentMonthStart);
       fetchMonthlyTarget(currentMonthStart);
@@ -37,23 +39,28 @@ function redirectNotLogin() {
   }
 }
 
-function fetchMonthlyGoal(date) {
-  fetch("http://localhost:8000/income/goal", {
-    headers: {
-      Authorization: "Bearer " + localStorage.getItem("accessTkn"),
-    },
-  })
-    .then((response) => response.json())
-    .then((goalData) => {
-      document.getElementById("monthlyGoalAmount").textContent =
-        goalData.amount;
-    })
-    .catch((error) => {
-      console.error(
-        "입금 목표 금액을 가져오는 중 오류가 발생했습니다. :",
-        error
-      );
-    });
+async function fetchMonthlyGoal(date) {
+  console.log(date);
+  const token = localStorage.getItem("accessTkn");
+  try {
+    const response = await axios.get(
+      `http://localhost:8000/income/goal/${date}`,
+      {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    const goal = response.data.goalAmount;
+    document.getElementById("monthlyGoalAmount").textContent =
+      goal.toLocaleString();
+  } catch (error) {
+    console.error(
+      "입금 목표 금액을 가져오는 중 오류가 발생했습니다. : ",
+      error
+    );
+  }
 }
 
 function fetchMonthlyTarget(date) {
@@ -72,7 +79,6 @@ function fetchMonthlyTarget(date) {
 }
 
 async function fetchMonthlyTotal(date) {
-  console.log(date);
   try {
     const response = await axios.get(
       `http://localhost:8000/common/month/${date}`
@@ -82,7 +88,7 @@ async function fetchMonthlyTotal(date) {
     document.getElementById("monthlyTotalAmount").textContent =
       totalAmount.toLocaleString();
   } catch (error) {
-    console.error("한 달 총 금액을 가져오는 중 오류가 발생했습니다. :", error);
+    console.error("한 달 총 금액을 가져오는 중 오류가 발생했습니다. : ", error);
   }
 }
 
@@ -95,6 +101,14 @@ document
       alert("날짜를 선택해주세요.");
     }
   });
+
+document.querySelector(".goalbtn").addEventListener("click", function () {
+  if (goalDate) {
+    location.href = `../goal/goal.html?date=${goalDate}`;
+  } else {
+    alert("입금 목표 금액 작성 버튼은 눌러주세요");
+  }
+});
 
 export function getSelectedDate() {
   return selectedDate;
