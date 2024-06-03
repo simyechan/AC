@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       const incomeAdd = document.getElementById("incomeList");
       incomeList.forEach((item) => {
         const listItem = document.createElement("li");
-        listItem.textContent = `${item.category}: ${item.amount}원`;
+        listItem.textContent = `${item.category}: ${item.amount}원 (${item.explanation})`;
         total += item.total;
         incomeAdd.appendChild(listItem);
       });
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       const expenseAdd = document.getElementById("expenseList");
       expenseList.forEach((item) => {
         const listItem = document.createElement("li");
-        listItem.textContent = `${item.category}: ${item.amount}원`;
+        listItem.textContent = `${item.category}: ${item.amount}원 (${item.explanation})`;
         total += item.total;
         expenseAdd.appendChild(listItem);
       });
