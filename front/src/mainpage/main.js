@@ -63,19 +63,24 @@ async function fetchMonthlyGoal(date) {
   }
 }
 
-function fetchMonthlyTarget(date) {
-  fetch("http://localhost:8000/expense/target")
-    .then((response) => response.json())
-    .then((targetData) => {
-      document.getElementById("monthlyTargetAmount").textContent =
-        targetData.amount;
-    })
-    .catch((error) => {
-      console.error(
-        "지출 목표 금액을 가져오는 중 오류가 발생했습니다. :",
-        error
-      );
-    });
+async function fetchMonthlyTarget(date) {
+  const token = localStorage.getItem("accessTkn");
+  try {
+    const response = await axios.get(
+      `http://localhost:8000/expense/target/${date}`,
+      {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    const target = response.data.targetAmount;
+    document.getElementById("monthlyTargetAmount").textContent =
+      target.toLocaleString();
+  } catch (error) {
+    console.error("지출 목표 금액을 가져오는 중 오류가 발생했습니다. :", error);
+  }
 }
 
 async function fetchMonthlyTotal(date) {
@@ -107,6 +112,14 @@ document.querySelector(".goalbtn").addEventListener("click", function () {
     location.href = `../goal/goal.html?date=${goalDate}`;
   } else {
     alert("입금 목표 금액 작성 버튼은 눌러주세요");
+  }
+});
+
+document.querySelector(".targetbtn").addEventListener("click", function () {
+  if (goalDate) {
+    location.href = `../target/target.html?date=${goalDate}`;
+  } else {
+    alert("지출 목표 금액 작성 버튼은 눌러주세요");
   }
 });
 

@@ -6,38 +6,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>ABC</title>
-    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
-    <link rel="stylesheet" href="main.css">
-
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
+    <link rel="stylesheet" href="main.css" />
   </head>
   <body>
-    
     <a href="./main.html">
-      <img src="../image/ABC.svg" alt="로고" class="logo">
+      <img src="../image/ABC.svg" alt="로고" class="logo" />
     </a>
-    
+
     <div>
-      <button class="loginbtn" onclick="location.href='../login/login.html'">로그인</button>
+      <button class="loginbtn" onclick="location.href='../login/login.html'">
+        로그인
+      </button>
     </div>
 
     <div id="calendar"></div>
 
-    <div id="expenseForm" style="display: none;">
-      <input type="hidden" id="selectedDate">
-      <button class="depositbtn" onclick="location.href='../deposit/deposit.html'">입금</button>
-      <button class="withdrawbtn" onclick="location.href='../withdraw/withdraw.html'">출금</button>
+    <div id="expenseForm" style="display: none">
+      <input type="hidden" id="selectedDate" />
+      <button
+        class="depositbtn"
+        onclick="location.href='../deposit/deposit.html'"
+      >
+        입금
+      </button>
+      <button
+        class="withdrawbtn"
+        onclick="location.href='../withdraw/withdraw.html'"
+      >
+        출금
+      </button>
       <button class="viewhistorybtn">내역</button>
     </div>
 
-    <div class="totalAmount" id="monthlyTotal">이번 달 총 금액: <span id="monthlyTotalAmount">0</span>원</div>
+    <div class="totalAmount" id="monthlyTotal">
+      이번 달 총 금액: <span id="monthlyTotalAmount">0</span>원
+    </div>
 
     <div class="totalAmount" id="monthlyGoal">
       <button class="goalbtn">입금 목표 금액 작성</button>
       이번 달 입금 목표 금액: <span id="monthlyGoalAmount">0</span>원
+    </div>
 
     <div class="totalAmount" id="monthlyTarget">
-      <button onclick="location.href='../target/target.html'">지출 목표 금액 작성</button>
-      이번 달 지출 목표 금액: <span id="monthlyTargetAmount">0</span>원</div>
+      <button class="targetbtn">지출 목표 금액 작성</button>
+      이번 달 지출 목표 금액: <span id="monthlyTargetAmount">0</span>원
+    </div>
 
     <script type="module" src="main.js"></script>
   </body>
