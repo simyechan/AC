@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       });
 
       const totalAmount = document.getElementById("totalAmount");
-      totalAmount.textContent = `총 금액: ${incomeTotal + expenseTotal}원`;
+      totalAmount.textContent = `하루 총 금액: ${incomeTotal + expenseTotal}원`;
     } catch (error) {
       console.error("오류: ", error);
       alert("데이터를 가져오는 중 오류가 발생했습니다.");
