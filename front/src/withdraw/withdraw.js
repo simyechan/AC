@@ -40,8 +40,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const date = dateInput.value.trim();
     const category = categoryInput.value.trim();
 
-    if (isNaN(amount)) {
+    if (isNaN(amount) || amount >= 0) {
       warnWith.classList.remove("transparent");
+      if (amount >= 0) {
+        alert("음수로 입력해주세요");
+      }
       valid = false;
     } else {
       warnWith.classList.add("transparent");
