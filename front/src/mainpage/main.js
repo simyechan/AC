@@ -102,9 +102,15 @@ async function fetchMonthlyTarget(date) {
 }
 
 async function fetchMonthlyTotal(date) {
+  const token = localStorage.getItem("accessTkn");
   try {
     const response = await axios.get(
-      `http://localhost:8000/common/month/${date}`
+      `http://localhost:8000/common/month/${date}`,
+      {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      }
     );
 
     const totalAmount = response.data.total;
