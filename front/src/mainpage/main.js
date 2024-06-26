@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
       );
 
       goalDate = currentMonthStart;
+      fetchUserName();
       fetchMonthlyTotal(currentMonthStart);
       fetchMonthlyGoal(currentMonthStart);
       fetchMonthlyTarget(currentMonthStart);
@@ -36,6 +37,23 @@ function redirectNotLogin() {
   // 로그인이 되어 있지 않다면 notlogin.html로 리디렉션
   if (!accessToken) {
     window.location.href = "../notlogin/notlogin.html";
+  }
+}
+
+async function fetchUserName() {
+  const token = localStorage.getItem("accessTkn");
+  try {
+    const response = await axios.get(`http://localhost:8000/common/nick`, {
+      headers: {
+        authorization: `Bearer ${token}`,
+      },
+    });
+
+    const name = response.data.nick;
+    document.getElementById("username").textContent =
+      "닉네임 : " + name.toLocaleString();
+  } catch (error) {
+    console.error("사용자의 이름을 가져오는 중 오류가 발생했습니다. : ", error);
   }
 }
 
