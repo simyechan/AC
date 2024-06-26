@@ -22,6 +22,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const target = parseFloat(targetInput.value.trim());
 
+    if (isNaN(target) || target >= 0) {
+      warnTarget.classList.remove("transparent");
+      if (target >= 0) {
+        alert("음수로 입력해주세요");
+      }
+    } else {
+      warnTarget.classList.add("transparent");
+    }
+
     if (!isNaN(target)) {
       const token = localStorage.getItem("accessTkn");
       console.log(isoDate);
